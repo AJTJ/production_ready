@@ -73,11 +73,48 @@
 
 .code {
   margin: 0;
-  padding: 20px 18px;
+  padding: 22px 20px;
   font-family: var(--font-mono);
   font-size: 0.82rem;
-  line-height: 1.85;
-  overflow-x: auto;
+  line-height: 1.75;
+}
+
+.code code {
+  display: block;
+}
+
+/* Each line is its own block, so a long reviewer note never forces the
+   panel to scroll sideways. pre-wrap lets a line wrap gracefully if it
+   ever outgrows a very narrow viewport instead of overflowing. */
+.label,
+.del,
+.add,
+.note {
+  display: block;
+  white-space: pre-wrap;
+}
+
+/* Section labels: // bad code, // good code */
+.label {
+  margin-top: 1.5em;
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+.code code > .label:first-child {
+  margin-top: 0;
+}
+
+.label::before {
+  content: '// ';
+}
+
+/* Diff lines: the -/+ marker sits in a hanging gutter, so a wrapped line
+   stays aligned with the code above it. */
+.del,
+.add {
+  padding-left: 2.4ch;
+  text-indent: -2.4ch;
 }
 
 .del {
@@ -90,6 +127,25 @@
   background: var(--accent-soft);
 }
 
+.del::before {
+  content: '- ';
+}
+
+.add::before {
+  content: '+ ';
+}
+
+/* Reviewer notes: dimmed, indented under the line they annotate. */
+.note {
+  padding-left: 4ch;
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+.note::before {
+  content: '// ';
+}
+
 @media (max-width: 860px) {
   .grid {
     grid-template-columns: 1fr;
@@ -97,5 +153,13 @@
   }
   .hero {
     padding-block: 64px 72px;
+  }
+}
+
+@media (max-width: 640px) {
+  .code {
+    font-size: 0.74rem;
+    line-height: 1.7;
+    padding: 18px 14px;
   }
 }
