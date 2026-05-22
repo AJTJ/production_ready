@@ -123,6 +123,13 @@ export const team: TeamMember[] = [
     initials: 'AJ',
     linkedin: 'https://www.linkedin.com/in/aaron-janke/',
   },
+  {
+    name: 'Patrick Dussault',
+    role: 'Product Designer',
+    bio: 'Builds the design systems, tokens, and interfaces behind the work. A frontend background means the design and the code that ships it stay in sync.',
+    initials: 'PD',
+    linkedin: 'https://www.linkedin.com/in/patrickdussault/',
+  },
 ]
 
 // The wider bench: specialists brought in per project.
