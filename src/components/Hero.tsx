@@ -35,31 +35,39 @@ export default function Hero() {
             <span className={styles.dot} />
             <span className={styles.dot} />
             <span className={styles.dot} />
-            <span className={styles.panelName}>checkout.ts</span>
+            <span className={styles.panelName}>checkout.js</span>
           </div>
           <pre className={styles.code}>
             <code>
+              <span className={styles.del}>{"- function checkout(cart) {"}</span>
+              {'\n'}
               <span className={styles.del}>
-                - function p(d)&#123;return fetch(&apos;/api/&apos;+d).then(r=&gt;r.json())&#125;
+                {"-   chargeCard(total(cart)) // flawless. genuinely."}
+              </span>
+              {'\n'}
+              <span className={styles.del}>
+                {"-   confetti() // a nice touch"}
+              </span>
+              {'\n'}
+              <span className={styles.del}>
+                {"-   localStorage.clear() // ...also logs the user out"}
+              </span>
+              {'\n'}
+              <span className={styles.del}>
+                {"-   if (isTuesday()) refundEveryone() // wait, what"}
+              </span>
+              {'\n'}
+              <span className={styles.del}>{"- }"}</span>
+              {'\n'}
+              <span className={styles.add}>
+                {"+ async function checkout(cart: Cart) {"}
               </span>
               {'\n'}
               <span className={styles.add}>
-                + async function getOrder(id: string): Promise&lt;Order&gt; &#123;
+                {"+   return charge(total(cart)) // just charges. no tuesdays."}
               </span>
               {'\n'}
-              <span className={styles.add}>
-                {'+   const res = await fetch(`/api/orders/${id}`)'}
-              </span>
-              {'\n'}
-              <span className={styles.add}>
-                + &nbsp;&nbsp;if (!res.ok) throw new OrderError(id, res.status)
-              </span>
-              {'\n'}
-              <span className={styles.add}>
-                + &nbsp;&nbsp;return OrderSchema.parse(await res.json())
-              </span>
-              {'\n'}
-              <span className={styles.add}>+ &#125;</span>
+              <span className={styles.add}>{"+ }"}</span>
             </code>
           </pre>
         </div>
